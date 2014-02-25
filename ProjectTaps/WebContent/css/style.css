@@ -1,0 +1,22 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background-color: #e5e5e5;
+}
+
+.clear {
+	clear: both;
+}
+
+.dashboard {
+	margin-top: -20px;
+}
+
+.logo {
+	height: 25px;
+}
+
+.tree-sub-menu {
+	padding-left: 20px;
+}
+

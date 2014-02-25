@@ -1,0 +1,72 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+<%@ taglib uri="/WEB-INF/tld/struts-nested.tld" prefix="bean"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<script src="js/jquery/jquery.min.js"></script>
+<link href="css/metro-bootstrap.css" rel="stylesheet">
+<link href="css/metro-bootstrap-responsive.css" rel="stylesheet">
+<link href="css/style-login.css" rel="stylesheet">
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#uname").attr("placeholder", "Username");
+		$("#pass").attr("placeholder", "Password");
+	});
+
+	function hover(element) {
+		element.setAttribute('src', 'images/LOGIN_ENABLE.png');
+	}
+	function unhover(element) {
+		element.setAttribute('src', 'images/LOGIN_DISABLE.png');
+	}
+	function button(task) {
+		if (document.eForm.username.value != "") {
+			document.eForm.task.value = task;
+			document.eForm.submit();
+		}
+		else{
+			alert("Username can't be empty");
+		}
+	}
+</script>
+
+<title>Login Taps</title>
+</head>
+<body class="metro login-background">
+	<div class="panel-taps">
+		<br /> <br /> <img src="images/LOGO_Taps6.png" class="logo-taps" />
+		<h1 class="title-taps">Sign in to TAPS</h1>
+		<html:form action="/ACE" method="post">
+			<html:hidden property="task" name="eForm" />
+			<html:text property="username" name="eForm" styleId="uname"
+				styleClass="textbox-taps" />
+			<br />
+			<html:password property="password" name="eForm" styleId="pass"
+				styleClass="textbox-taps" />
+			<br />
+			<br />
+
+			<div class="input-control checkbox align-left">
+				<label class="check-label"> <html:checkbox
+						property="keepMeSign"></html:checkbox> <span class="check"></span>
+					Keep me signed in
+				</label>
+			</div>
+			<br />
+			<html:image styleClass="login-taps" styleId="buttonLogin"
+				src="images/LOGIN_DISABLE.png" onmouseover="hover(this);"
+				onmouseout="unhover(this)" onclick="button('login')"></html:image>
+		</html:form>
+	</div>
+	<div class="footer-taps">Copyright &copy; 2014 ACE Batch-18. All
+		rights reserved.</div>
+</body>
+</html>
