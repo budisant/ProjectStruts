@@ -29,7 +29,7 @@ public class ActionStruts extends Action {
 			boolean pass = false;
 			if (!"".equals(tForm.getUsername())
 					&& !"".equals(tForm.getPassword())) {
-				
+
 				String username = tForm.getUsername();
 				String password = tForm.getPassword();
 				// //////////////////////////
@@ -54,10 +54,16 @@ public class ActionStruts extends Action {
 				tForm.setPassword("");
 				tForm.setUsername("");
 			}
-			
+
 			// //////////////////////////
-			System.out.println(pass);
-			return mapping.findForward("Welcome");
+			if (pass) {
+				/*
+				 * SET SESSION
+				 */
+				return mapping.findForward("Dashboard");
+			} else {
+				return mapping.findForward("Welcome");
+			}
 		} else {
 			return mapping.findForward("Welcome");
 		}

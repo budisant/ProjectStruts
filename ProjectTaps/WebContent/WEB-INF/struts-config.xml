@@ -11,6 +11,7 @@
 		<action name="eForm" path="/ACE" scope="request"
 			type="adins.ace.action.ActionStruts">
 			<forward name="Welcome" path="/WEB-INF/index.jsp" />
+			<forward name="Dashboard" path="/WEB-INF/jsp/dashboard.jsp" />
 		</action>
 	</action-mappings>
 

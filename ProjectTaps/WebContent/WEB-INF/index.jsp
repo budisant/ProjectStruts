@@ -10,23 +10,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<script src="js/jquery/jquery.min.js"></script>
 <link href="css/metro-bootstrap.css" rel="stylesheet">
 <link href="css/metro-bootstrap-responsive.css" rel="stylesheet">
 <link href="css/style-login.css" rel="stylesheet">
+<script src="js/jquery/jquery.min.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#uname").attr("placeholder", "Username");
 		$("#pass").attr("placeholder", "Password");
 	});
-
-	function hover(element) {
-		element.setAttribute('src', 'images/LOGIN_ENABLE.png');
+	
+	function enablingLogin() {
+		$("#login-btn").removeAttr('disabled');
+		$("#login-btn").attr('style', 'cursor: pointer;');
+		$("#login-btn").attr('src', 'images/LOGIN_ENABLE.png');
 	}
-	function unhover(element) {
-		element.setAttribute('src', 'images/LOGIN_DISABLE.png');
+	function disablingLogin() {
+		$("#login-btn").attr('disabled', 'disabled');
+		$("#login-btn").attr('style', 'cursor: default;');
+		$("#login-btn").attr('src', 'images/LOGIN_DISABLE.png');
 	}
+	$(document).ready(function() {
+		disablingLogin();
+		$("#uname").keyup(function(){
+			if ($("#uname").val().length > 0 && $("#pass").val().length > 0)
+				enablingLogin();
+			else
+				disablingLogin();
+			});
+		
+		$("#pass").keyup(function(){
+			if ($("#uname").val().length > 0 && $("#pass").val().length > 0)
+				enablingLogin();
+			else
+				disablingLogin();
+			});
+	});
+	
 	function button(task) {
 		if (document.eForm.username.value != "") {
 			document.eForm.task.value = task;
@@ -61,7 +82,7 @@
 				</label>
 			</div>
 			<br />
-			<html:image styleClass="login-taps" styleId="buttonLogin"
+			<html:image styleClass="login-taps" styleId="login-btn"
 				src="images/LOGIN_DISABLE.png" onmouseover="hover(this);"
 				onmouseout="unhover(this)" onclick="button('login')"></html:image>
 		</html:form>
