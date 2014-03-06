@@ -1,7 +1,7 @@
 /*http://www.developerscrappad.com/963/java/jndi/java-jndi-ldap-windows-active-directory-authentication-organizational-unit-group-and-other-information-access/
  */
 
-package adins.ace.action;
+package adins.ace.taps.action;
 
 import java.util.Hashtable;
 
@@ -14,7 +14,8 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import adins.ace.form.FormEmp;
+import adins.ace.taps.form.login.FormLogin;
+
 
 public class ActionStruts extends Action {
 	@Override
@@ -22,7 +23,7 @@ public class ActionStruts extends Action {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 
-		FormEmp tForm = (FormEmp) form;
+		FormLogin tForm = (FormLogin) form;
 
 		// HttpSession session = request.getSession(true);
 		if ("login".equals(tForm.getTask())) {
@@ -40,8 +41,8 @@ public class ActionStruts extends Action {
 				env.put(Context.SECURITY_PRINCIPAL, username
 						+ "@nu-ace.ad-ins.com");
 				env.put(Context.SECURITY_CREDENTIALS, password);
-				env.put(Context.PROVIDER_URL, "ldap://192.168.10.1:389");
-				DirContext ctx;
+				env.put(Context.PROVIDER_URL, "ldap://ace-router:389");
+				DirContext ctx = null;
 
 				try {
 					ctx = new InitialDirContext(env);

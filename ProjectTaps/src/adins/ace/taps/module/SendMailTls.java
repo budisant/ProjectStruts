@@ -1,4 +1,4 @@
-package adins.ace.Mail;
+package adins.ace.taps.module;
 
 import java.util.Properties;
 

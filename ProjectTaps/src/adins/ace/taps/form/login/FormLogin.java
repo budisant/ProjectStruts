@@ -1,11 +1,11 @@
-package adins.ace.form;
+package adins.ace.taps.form.login;
 
 
 import org.apache.struts.action.ActionForm;
 
 
 @SuppressWarnings("serial")
-public class FormEmp extends ActionForm{
+public class FormLogin extends ActionForm{
 	private String task;
 	private String username;
 	private String password;
