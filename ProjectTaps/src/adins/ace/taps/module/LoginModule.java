@@ -8,17 +8,25 @@ import javax.naming.directory.DirContext;
 import javax.naming.directory.InitialDirContext;
 
 public class LoginModule {
-	public LoginModule(){}
-	public boolean getAuthenticate(String username,String password){
+	private String username;
+	private String password;
+	private String domainName;
+
+	public LoginModule() {
+	}
+
+	public boolean getAuthenticationUser(String username, String password,
+			String domainName) {
 		boolean pass = false;
+		this.username = username;
+		this.password = password;
+		this.domainName = domainName;
+
+		GetUserDomainModule domainAuth = new GetUserDomainModule();
 		Hashtable<String, String> env = new Hashtable<String, String>();
-		env.put(Context.INITIAL_CONTEXT_FACTORY,
-				"com.sun.jndi.ldap.LdapCtxFactory");
-		env.put(Context.SECURITY_AUTHENTICATION, "simple");
-		env.put(Context.SECURITY_PRINCIPAL, username
-				+ "@nu-ace.ad-ins.com");
-		env.put(Context.SECURITY_CREDENTIALS, password);
-		env.put(Context.PROVIDER_URL, "ldap://ace-router:389");
+
+		env = domainAuth.getDomainAuthentication(this.username, this.password,
+				this.domainName);
 		DirContext ctx = null;
 		try {
 			ctx = new InitialDirContext(env);
