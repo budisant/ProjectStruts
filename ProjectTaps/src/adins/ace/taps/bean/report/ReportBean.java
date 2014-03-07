@@ -7,6 +7,7 @@ public class ReportBean implements Serializable {
 	private String organizationCode;
 	private String firstName;
 	private String lastName;
+	private String employeeName;
 	private String projectCode;
 	private String assignmentDate;
 	private String assignmentDueDate;
