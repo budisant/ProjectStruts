@@ -13,7 +13,7 @@
 			type="adins.ace.taps.action.LoginAction">
 			<forward name="Welcome" path="/WEB-INF/index.jsp" />
 			<forward name="Dashboard" path="/WEB-INF/jsp/dashboard.jsp" />
-			<forward name="AddOrganization" path="/WEB-INF/jsp/organization/AddOrganizationjsp" />
+			<forward name="AddOrganization" path="/WEB-INF/jsp/organization/AddOrganization.jsp" />
 		</action>
 	</action-mappings>
 
