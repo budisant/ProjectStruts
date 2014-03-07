@@ -14,7 +14,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import adins.ace.taps.form.login.FormLogin;
+import adins.ace.taps.form.login.LoginForm;
 
 
 public class ActionStruts extends Action {
@@ -23,7 +23,7 @@ public class ActionStruts extends Action {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 
-		FormLogin tForm = (FormLogin) form;
+		LoginForm tForm = (LoginForm) form;
 
 		// HttpSession session = request.getSession(true);
 		if ("login".equals(tForm.getTask())) {

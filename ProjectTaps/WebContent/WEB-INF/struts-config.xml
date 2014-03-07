@@ -4,11 +4,11 @@
 <struts-config>
 
 	<form-beans>
-		<form-bean name="eForm" type="adins.ace.taps.form.login.FormLogin" />
+		<form-bean name="loginForm" type="adins.ace.taps.form.login.LoginForm" />
 	</form-beans>
 
 	<action-mappings>
-		<action name="eForm" path="/ACE" scope="request"
+		<action name="loginForm" path="/ACE" scope="request"
 			type="adins.ace.taps.action.ActionStruts">
 			<forward name="Welcome" path="/WEB-INF/index.jsp" />
 			<forward name="Dashboard" path="/WEB-INF/jsp/dashboard.jsp" />
