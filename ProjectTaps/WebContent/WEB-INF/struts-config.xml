@@ -9,7 +9,7 @@
 
 	<action-mappings>
 		<action name="loginForm" path="/ACE" scope="request"
-			type="adins.ace.taps.action.ActionStruts">
+			type="adins.ace.taps.action.LoginAction">
 			<forward name="Welcome" path="/WEB-INF/index.jsp" />
 			<forward name="Dashboard" path="/WEB-INF/jsp/dashboard.jsp" />
 		</action>
