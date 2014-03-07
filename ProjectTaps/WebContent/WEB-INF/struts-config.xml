@@ -5,6 +5,7 @@
 
 	<form-beans>
 		<form-bean name="loginForm" type="adins.ace.taps.form.login.LoginForm" />
+		<form-bean name="OrganizationForm" type="adins.ace.taps.form.organization.OrganizationForm" />
 	</form-beans>
 
 	<action-mappings>
@@ -12,6 +13,7 @@
 			type="adins.ace.taps.action.ActionStruts">
 			<forward name="Welcome" path="/WEB-INF/index.jsp" />
 			<forward name="Dashboard" path="/WEB-INF/jsp/dashboard.jsp" />
+			<forward name="AddOrganization" path="/WEB-INF/jsp/organization/AddOrganizationjsp" />
 		</action>
 	</action-mappings>
 
