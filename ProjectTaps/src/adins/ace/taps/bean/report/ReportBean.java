@@ -60,6 +60,14 @@ public class ReportBean implements Serializable {
 		this.lastName = lastName;
 	}
 
+	public String getEmployeeName() {
+		return employeeName;
+	}
+
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+
 	public String getProjectCode() {
 		return projectCode;
 	}
