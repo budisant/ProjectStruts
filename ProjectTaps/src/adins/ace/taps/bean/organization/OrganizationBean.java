@@ -2,6 +2,7 @@ package adins.ace.taps.bean.organization;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class OrganizationBean implements Serializable {
 	private String organizationCode;
 	private String organizationName;

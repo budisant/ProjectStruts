@@ -2,6 +2,7 @@ package adins.ace.taps.bean.report;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class ReportBean implements Serializable {
 	private Integer reportId;
 	private String organizationCode;
