@@ -17,7 +17,7 @@ import org.apache.struts.action.ActionMapping;
 import adins.ace.taps.form.login.LoginForm;
 
 
-public class ActionStruts extends Action {
+public class LoginAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
