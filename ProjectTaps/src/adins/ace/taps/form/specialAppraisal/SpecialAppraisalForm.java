@@ -7,6 +7,8 @@ public class SpecialAppraisalForm extends ActionForm{
 	private String task;
 	private String search;
 	private String value;
+	
+	
 	public String getTask() {
 		return task;
 	}
