@@ -1,1 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "sql-map-2.dtd" >
+
+<sqlMap namespace = "SpecialAppraisal">
+	<select id= "getAllSpecialAppraisal" parameterClass="java.util.Map" resultClass="adins.ace.bean.specialAppraisal.SpecialAppraisalBean"> 
+	SELECT s.created_date AS createdDate, 
+	e.first_name||' '||e.last_name AS employeeName, 
+	SUM(s.star_after)-SUM(s.star_before) AS appraisalStar
+	FROM stars s, employees e
+	WHERE s.user_domain=e.user_domain 
+	group by s.created_date, e.first_name||' '||e.last_name
+	</select>
+	
+	
+	<select id= "getDetailSpecialAppraisal" parameterClass="java.util.Map" resultClass="adins.ace.bean.specialAppraisal.SpecialAppraisalBean"> 
+	SELECT s.created_date AS createdDate, 
+	e.first_name||' '||e.last_name AS employeeName, 
+	SUM(s.star_after)-SUM(s.star_before) AS appraisalStar
+	FROM stars s, employees e
+	WHERE s.user_domain=e.user_domain AND star_id=$starId$
+	group by s.created_date, e.first_name||' '||e.last_name
+	</select>
+	
+	
+	<insert id= "InsertSpecialAppraisal" 
+	parameterClass="adins.ace.bean.specialAppraisal.SpecialAppraisalBean">
+	INSERT INTO star (star_id, user_domain, description, star_before, star_after, created_by, created_date) VALUES
+	($star_id_sequence.NEXTVAL$, #userDomain#, #description#, $starBefore$, $starAfter$, #session.user_domain#, SYSDATE)
+	</insert>
+	
+	
+</sqlMap>
