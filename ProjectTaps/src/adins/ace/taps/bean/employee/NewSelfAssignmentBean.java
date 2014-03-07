@@ -4,13 +4,21 @@ import org.apache.struts.action.ActionForm;
 
 @SuppressWarnings("serial")
 public class NewSelfAssignmentBean extends ActionForm{
+	private String createBy;
 	private String assignmentDueDate;
 	private String assignmentType;
 	private String assignBy;
+	private String reportTo;
 	private String activityType;
 	private String reffTaskCode;
 	private String manHours;
 	private String description;
+	public String getCreateBy() {
+		return createBy;
+	}
+	public void setCreateBy(String createBy) {
+		this.createBy = createBy;
+	}
 	public String getAssignmentDueDate() {
 		return assignmentDueDate;
 	}
@@ -28,6 +36,12 @@ public class NewSelfAssignmentBean extends ActionForm{
 	}
 	public void setAssignBy(String assignBy) {
 		this.assignBy = assignBy;
+	}
+	public String getReportTo() {
+		return reportTo;
+	}
+	public void setReportTo(String reportTo) {
+		this.reportTo = reportTo;
 	}
 	public String getActivityType() {
 		return activityType;
@@ -53,4 +67,5 @@ public class NewSelfAssignmentBean extends ActionForm{
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 }

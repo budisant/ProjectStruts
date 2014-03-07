@@ -49,9 +49,9 @@
 	});
 	
 	function button(task) {
-		if (document.eForm.username.value != "") {
-			document.eForm.task.value = task;
-			document.eForm.submit();
+		if (document.loginForm.username.value != "") {
+			document.loginForm.task.value = task;
+			document.loginForm.submit();
 		}
 		else{
 			alert("Username can't be empty");
@@ -66,11 +66,11 @@
 		<br /> <br /> <img src="images/LOGO_Taps6.png" class="logo-taps" />
 		<h1 class="title-taps">Sign in to TAPS</h1>
 		<html:form action="/ACE" method="post">
-			<html:hidden property="task" name="eForm" />
-			<html:text property="username" name="eForm" styleId="uname"
+			<html:hidden property="task" name="loginForm" />
+			<html:text property="username" name="loginForm" styleId="uname"
 				styleClass="textbox-taps" />
 			<br />
-			<html:password property="password" name="eForm" styleId="pass"
+			<html:password property="password" name="loginForm" styleId="pass"
 				styleClass="textbox-taps" />
 			<br />
 			<br />
