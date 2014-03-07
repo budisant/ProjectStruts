@@ -14,10 +14,14 @@ public class ReportBean implements Serializable {
 	private String assignmentApprovedDate;
 	private String activityType;
 	private String description;
-	private String adhoc;
-	private String reportTo;
-	private String assignBy;
-	private String assignTo;
+	private String adhocName;
+	private String adhocDomain;
+	private String reportToName;
+	private String reportToDomain;
+	private String assignByName;
+	private String assignByDomain;
+	private String assignToName;
+	private String assignToDomain;
 	private Integer star;
 	private String assignmentType;
 	private String assignmentCategory;
@@ -116,36 +120,68 @@ public class ReportBean implements Serializable {
 		this.description = description;
 	}
 
-	public String getAdhoc() {
-		return adhoc;
+	public String getAdhocName() {
+		return adhocName;
 	}
 
-	public void setAdhoc(String adhoc) {
-		this.adhoc = adhoc;
+	public void setAdhocName(String adhocName) {
+		this.adhocName = adhocName;
 	}
 
-	public String getReportTo() {
-		return reportTo;
+	public String getAdhocDomain() {
+		return adhocDomain;
 	}
 
-	public void setReportTo(String reportTo) {
-		this.reportTo = reportTo;
+	public void setAdhocDomain(String adhocDomain) {
+		this.adhocDomain = adhocDomain;
 	}
 
-	public String getAssignBy() {
-		return assignBy;
+	public String getReportToName() {
+		return reportToName;
 	}
 
-	public void setAssignBy(String assignBy) {
-		this.assignBy = assignBy;
+	public void setReportToName(String reportToName) {
+		this.reportToName = reportToName;
 	}
 
-	public String getAssignTo() {
-		return assignTo;
+	public String getReportToDomain() {
+		return reportToDomain;
 	}
 
-	public void setAssignTo(String assignTo) {
-		this.assignTo = assignTo;
+	public void setReportToDomain(String reportToDomain) {
+		this.reportToDomain = reportToDomain;
+	}
+
+	public String getAssignByName() {
+		return assignByName;
+	}
+
+	public void setAssignByName(String assignByName) {
+		this.assignByName = assignByName;
+	}
+
+	public String getAssignByDomain() {
+		return assignByDomain;
+	}
+
+	public void setAssignByDomain(String assignByDomain) {
+		this.assignByDomain = assignByDomain;
+	}
+
+	public String getAssignToName() {
+		return assignToName;
+	}
+
+	public void setAssignToName(String assignToName) {
+		this.assignToName = assignToName;
+	}
+
+	public String getAssignToDomain() {
+		return assignToDomain;
+	}
+
+	public void setAssignToDomain(String assignToDomain) {
+		this.assignToDomain = assignToDomain;
 	}
 
 	public Integer getStar() {
