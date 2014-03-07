@@ -5,7 +5,7 @@ import org.apache.struts.action.ActionForm;
 
 
 @SuppressWarnings("serial")
-public class FormLogin extends ActionForm{
+public class LoginForm extends ActionForm{
 	private String task;
 	private String username;
 	private String password;
