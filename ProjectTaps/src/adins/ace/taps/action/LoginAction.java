@@ -3,10 +3,6 @@
 
 package adins.ace.taps.action;
 
-import java.util.Hashtable;
-
-import javax.naming.*;
-import javax.naming.directory.*;
 import javax.servlet.http.*;
 
 import org.apache.struts.action.Action;
@@ -15,7 +11,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import adins.ace.taps.form.login.LoginForm;
-
+import adins.ace.taps.module.LoginModule;
 
 public class LoginAction extends Action {
 	@Override
@@ -24,8 +20,9 @@ public class LoginAction extends Action {
 			throws Exception {
 
 		LoginForm tForm = (LoginForm) form;
+		LoginModule loginAuth = new LoginModule();
+		HttpSession session = request.getSession(true);
 
-		// HttpSession session = request.getSession(true);
 		if ("login".equals(tForm.getTask())) {
 			boolean pass = false;
 			if (!"".equals(tForm.getUsername())
@@ -33,35 +30,19 @@ public class LoginAction extends Action {
 
 				String username = tForm.getUsername();
 				String password = tForm.getPassword();
-				// //////////////////////////
-				Hashtable<String, String> env = new Hashtable<String, String>();
-				env.put(Context.INITIAL_CONTEXT_FACTORY,
-						"com.sun.jndi.ldap.LdapCtxFactory");
-				env.put(Context.SECURITY_AUTHENTICATION, "simple");
-				env.put(Context.SECURITY_PRINCIPAL, username
-						+ "@nu-ace.ad-ins.com");
-				env.put(Context.SECURITY_CREDENTIALS, password);
-				env.put(Context.PROVIDER_URL, "ldap://ace-router:389");
-				DirContext ctx = null;
 
-				try {
-					ctx = new InitialDirContext(env);
-					if (!ctx.equals(null)) {
-						pass = true;
-					}
-				} catch (NamingException ex) {
-					System.out.println(ex.toString());
-				}
+				pass = loginAuth.getAuthenticate(username, password);
+
 				tForm.setPassword("");
 				tForm.setUsername("");
-			}
-
-			// //////////////////////////
-			if (pass) {
-				/*
-				 * SET SESSION
-				 */
-				return mapping.findForward("Dashboard");
+				if (pass) {
+					/*
+					 * SET SESSION
+					 */
+					return mapping.findForward("Dashboard");
+				} else {
+					return mapping.findForward("Welcome");
+				}
 			} else {
 				return mapping.findForward("Welcome");
 			}
