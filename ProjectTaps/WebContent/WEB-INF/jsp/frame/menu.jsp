@@ -1,3 +1,7 @@
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+<%@ taglib uri="/WEB-INF/tld/struts-nested.tld" prefix="bean"%>
+<html:form action="/menu" method="post">
 <div class="sidebar dark shadow">
 	<ul>
 		<li class="title bg-red"><span class="icon-grid"></span>&nbsp;&nbsp;<b>Menu</b></li>
@@ -33,3 +37,4 @@
 			</ul></li>
 	</ul>
 </div>
+</html:form>
