@@ -1,4 +1,4 @@
-package adins.ace.taps.form.menu;
+package adins.ace.taps.form.employee;
 
 
 import java.util.List;
@@ -7,7 +7,7 @@ import org.apache.struts.action.ActionForm;
 
 
 @SuppressWarnings("serial")
-public class MenuForm extends ActionForm{
+public class EmployeeForm extends ActionForm{
 	private String task;
 	private List listEmployees;
 

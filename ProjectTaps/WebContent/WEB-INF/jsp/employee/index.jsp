@@ -1,13 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html" %>
+<%@taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic" %>
+<%@taglib uri="/WEB-INF/tld/struts-nested.tld" prefix="bean" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
+<script type="text/javascript">
+function button(task) {
+	document.employeeForm.task.value = task;
+	document.employeeForm.submit();
+}
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <jsp:include page="../../../js/import.jsp" />
 
 <title>Employee</title>
@@ -16,7 +25,7 @@
 
 <body class="metro">
 	<jsp:include page="../../../frame/header.jsp" />
-
+	<html:form action="/employee" method="POST">	
 	<div class="container container-taps">
 		<div class="grid">
 			<div class="row row-taps shadow-taps">
@@ -55,45 +64,23 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td class="text-center">drs</td>
-							<td class="text-center">devri.rs</td>
-							<td class="text-center">555</td>
-							<td>Devri</td>
-							<td class="text-center">senen</td>
-							<td class="text-center"><a href="new.jsp"
-								data-hint="Edit Employee" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/EDIT.png"></a></td>
-							<td class="text-center"><a href="javascript:confDel()"
-								data-hint="Delete Employee" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/DELETE.png"></a></td>
-						</tr>
-						<tr>
-							<td class="text-center">wjy</td>
-							<td class="text-center">wirya.jaya</td>
-							<td class="text-center">555</td>
-							<td>Wirya</td>
-							<td class="text-center">kebon</td>
-							<td class="text-center"><a href="new.jsp"
-								data-hint="Edit Employee" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/EDIT.png"></a></td>
-							<td class="text-center"><a href="javascript:confDel()"
-								data-hint="Delete Employee" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/DELETE.png"></a></td>
-						</tr>
-						<tr>
-							<td class="text-center">vsy</td>
-							<td class="text-center">vinsen.surya</td>
-							<td class="text-center">555</td>
-							<td>Vinsen</td>
-							<td class="text-center">meruya</td>
-							<td class="text-center"><a href="new.jsp"
-								data-hint="Edit Employee" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/EDIT.png"></a></td>
-							<td class="text-center"><a href="javascript:confDel()"
-								data-hint="Delete Employee" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/DELETE.png"></a></td>
-						</tr>
+						<logic:notEmpty name="menuForm" property="listEmployees">
+							<logic:iterate id="employee" name="menuForm" property="listEmployees">
+								<tr>
+									<td><bean:write name="employee" property="employeeCode"/></td>
+									<td><bean:write name="employee" property="userDomain"/></td>
+									<td><bean:write name="employee" property="nik"/></td>
+									<td><bean:write name="employee" property="employeeName"/></td>
+									<td><bean:write name="employee" property="employeeAddress"/></td>
+									<td class="text-center"><a href="javascript:button('edit');"
+										data-hint="Edit Employee" data-hint-position="bottom"><img
+											alt="" src="<%=request.getContextPath()%>/images/EDIT.png"></a></td>
+									<td class="text-center"><a href="javascript:confDel()"
+										data-hint="Delete Employee" data-hint-position="bottom"><img
+											alt="" src="<%=request.getContextPath()%>/images/DELETE.png"></a></td>
+								</tr>
+							</logic:iterate>
+						</logic:notEmpty>
 						<tr>
 							<td colspan=6 class="text-center">
 								<div class="pagination">
@@ -116,11 +103,13 @@
 									alt="" src="<%=request.getContextPath()%>/images/ADD_EMPLOYEE.png"></a></td>
 						</tr>
 					</tbody>
+					
 				</table>
 			</div>
 		</div>
 	</div>
-
+	<html:hidden property="task" name="employeeForm" />
+	</html:form>
 	<jsp:include page="../../../frame/footer.jsp" />
 
 </body>

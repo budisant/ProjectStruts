@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import adins.ace.taps.form.menu.MenuForm;
+import adins.ace.taps.manager.EmployeeManager;
 
 public class MenuAction extends Action {
 	@Override
@@ -25,6 +26,10 @@ public class MenuAction extends Action {
 		}
 		
 		if ("employee".equals(mForm.getTask())){
+			EmployeeManager mMan = new EmployeeManager();
+			
+			
+			mForm.setListEmployees(mMan.getAllEmployees());
 			return mapping.findForward("Employee");
 		}
 		
