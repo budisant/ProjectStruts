@@ -21,7 +21,11 @@ public class EmployeeAction extends Action {
 			throws Exception {
 		EmployeeForm mForm = (EmployeeForm) form;
 		//HttpSession session = request.getSession(true);
-		System.out.println(mForm.getTask());
+		if ("ListEmployee".equals(mForm.getTask())){
+			EmployeeManager mMan = new EmployeeManager();
+			mForm.setListEmployees(mMan.getAllEmployees());
+			return mapping.findForward("ListEmployee");
+		}
 		if ("edit".equals(mForm.getTask())) {
 			return mapping.findForward("Edit");
 		}

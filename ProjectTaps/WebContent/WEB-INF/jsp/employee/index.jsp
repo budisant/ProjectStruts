@@ -64,8 +64,8 @@ function button(task) {
 						</tr>
 					</thead>
 					<tbody>
-						<logic:notEmpty name="menuForm" property="listEmployees">
-							<logic:iterate id="employee" name="menuForm" property="listEmployees">
+						<logic:notEmpty name="employeeForm" property="listEmployees">
+							<logic:iterate id="employee" name="employeeForm" property="listEmployees">
 								<tr>
 									<td><bean:write name="employee" property="employeeCode"/></td>
 									<td><bean:write name="employee" property="userDomain"/></td>

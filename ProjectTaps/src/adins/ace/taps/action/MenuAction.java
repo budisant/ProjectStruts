@@ -26,10 +26,6 @@ public class MenuAction extends Action {
 		}
 		
 		if ("employee".equals(mForm.getTask())){
-			EmployeeManager mMan = new EmployeeManager();
-			
-			
-			mForm.setListEmployees(mMan.getAllEmployees());
 			return mapping.findForward("Employee");
 		}
 		

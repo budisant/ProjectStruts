@@ -8,17 +8,7 @@ import org.apache.struts.action.ActionForm;
 
 @SuppressWarnings("serial")
 public class MenuForm extends ActionForm{
-	private String task;
-	private List listEmployees;
-
-	public List getListEmployees() {
-		return listEmployees;
-	}
-
-	public void setListEmployees(List listEmployees) {
-		this.listEmployees = listEmployees;
-	}	
-	
+	private String task;	
 	public String getTask() {
 		return task;
 	}
