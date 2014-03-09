@@ -8,12 +8,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<jsp:include page="../../js/import.jsp" />
+<jsp:include page="/js/import.jsp" />
 <title>Taps</title>
 
 </head>
 <body class="metro">
-	<jsp:include page="../../frame/header.jsp" />
+	<jsp:include page="/frame/header.jsp" />
 
 	<div class="container container-taps">
 		<div class="grid">
@@ -23,31 +23,31 @@
 					<a href="#" data-hint="Approval Assignment"
 						data-hint-position="left" class="tile bg-cyan"> <span
 						class="tile-content icon"> <img alt=""
-							src="<%=request.getContextPath()%>/images/APPROVAL_ASSIGNMENT.png">
+							src="images/APPROVAL_ASSIGNMENT.png">
 					</span> <span class="brand"> <span class="badge bg-gray">0</span>
 					</span>
-					</a> <a href="../../assignment/index_claim.jsp" id="_edit_this"
+					</a> <a href="#" id="_edit_this"
 						data-hint="Claim Assignment" data-hint-position="left"
 						class="tile bg-cyan"> <span class="tile-content icon">
-							<img alt="" src="<%=request.getContextPath()%>/images/CLAIM_ASSIGNMENT.png">
+							<img alt="" src="images/CLAIM_ASSIGNMENT.png">
 					</span> <span class="brand"> <span class="badge bg-red">5</span>
 					</span>
 					</a> <a href="#" data-hint="Claim Self Assignment"
 						data-hint-position="left" class="tile bg-cyan"> <span
 						class="tile-content icon"> <img alt=""
-							src="<%=request.getContextPath()%>/images/CLAIM_NEW_ASSIGNMENT.png">
+							src="images/CLAIM_NEW_ASSIGNMENT.png">
 					</span> <span class="brand"> <span class="badge bg-gray">0</span>
 					</span>
 					</a> <a href="#" data-hint="Correction Assignment"
 						data-hint-position="left" class="tile bg-cyan"> <span
 						class="tile-content icon"> <img alt=""
-							src="<%=request.getContextPath()%>/images/CORRECTION_ASSIGNMENT.png">
+							src="images/CORRECTION_ASSIGNMENT.png">
 					</span> <span class="brand"> <span class="badge bg-gray">0</span>
 					</span>
 					</a> <a href="#" data-hint="Correction Self Assignment"
 						data-hint-position="left" class="tile bg-cyan"> <span
 						class="tile-content icon"> <img alt=""
-							src="<%=request.getContextPath()%>/images/CORRECTION_NEW_ASSIGNMENT.png">
+							src="images/CORRECTION_NEW_ASSIGNMENT.png">
 					</span> <span class="brand"> <span class="badge bg-gray">0</span>
 					</span>
 					</a>
@@ -66,52 +66,52 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
@@ -130,52 +130,52 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
 							<tr>
-								<td class="text-center"><img src="<%=request.getContextPath()%>/images/test-ava.jpg"
+								<td class="text-center"><img src="images/test-ava.jpg"
 									style="width: 30px; height: 45px;"> Kamashwanee (DRS)</td>
 								<td class="text-center">77</td>
 							</tr>
@@ -185,6 +185,6 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="../../frame/footer.jsp" />
+	<jsp:include page="/frame/footer.jsp" />
 </body>
 </html>

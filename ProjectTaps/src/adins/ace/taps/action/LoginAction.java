@@ -44,7 +44,8 @@ public class LoginAction extends Action {
 					
 					return mapping.findForward("Dashboard");
 				} else {
-					return mapping.findForward("Welcome");
+					return mapping.findForward("Dashboard");
+					//return mapping.findForward("Welcome");
 				}
 			} else {
 				return mapping.findForward("Welcome");
