@@ -25,7 +25,7 @@ function button(task) {
 
 <body class="metro">
 	<jsp:include page="../../../frame/header.jsp" />
-	<html:form action="/employee" method="POST">	
+	<html:form action="/employee" method="POST" styleClass="employeeForm">	
 	<div class="container container-taps">
 		<div class="grid">
 			<div class="row row-taps shadow-taps">
@@ -72,7 +72,7 @@ function button(task) {
 									<td><bean:write name="employee" property="nik"/></td>
 									<td><bean:write name="employee" property="employeeName"/></td>
 									<td><bean:write name="employee" property="employeeAddress"/></td>
-									<td class="text-center"><a href="javascript:button('edit');"
+									<td class="text-center"><a href="javascript:button('edit','<bean:write name="employee" property="userDomain"/>');"
 										data-hint="Edit Employee" data-hint-position="bottom"><img
 											alt="" src="<%=request.getContextPath()%>/images/EDIT.png"></a></td>
 									<td class="text-center"><a href="javascript:confDel()"
