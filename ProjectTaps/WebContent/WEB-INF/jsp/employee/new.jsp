@@ -7,12 +7,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<jsp:include page="../../../js/import.jsp" />
+<jsp:include page="/js/import.jsp" />
 
 <title>Employee</title>
 </head>
 <body class="metro">
-	<jsp:include page="../../../frame/header.jsp" />
+	<jsp:include page="/frame/header.jsp" />
 
 	<div class="container container-taps">
 		<div class="grid">
@@ -166,9 +166,9 @@
 		</div>
 	</div>
 
-	<jsp:include page="../../../frame/footer.jsp" />
+	<jsp:include page="/frame/footer.jsp" />
 	<div id="popup_organization" class="hide"><jsp:include
-			page="../../../lookup/_organization.jsp" /></div>
+			page="/lookup/_organization.jsp" /></div>
 </body>
 
 </html>

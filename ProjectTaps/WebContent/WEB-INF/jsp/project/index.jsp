@@ -7,13 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<jsp:include page="../../../js/import.jsp" />
+<jsp:include page="/js/import.jsp" />
 
 <title>Project</title>
 </head>
 
 <body class="metro">
-	<jsp:include page="../../../frame/header.jsp" />
+	<jsp:include page="/frame/header.jsp" />
 
 	<div class="container container-taps">
 		<div class="grid">
@@ -123,7 +123,7 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="../../../frame/footer.jsp" />
+	<jsp:include page="/frame/footer.jsp" />
 </body>
 
 </html>

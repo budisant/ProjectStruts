@@ -17,14 +17,14 @@ function button(task) {
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<jsp:include page="../../../js/import.jsp" />
+<jsp:include page="/js/import.jsp" />
 
 <title>Employee</title>
 
 </head>
 
 <body class="metro">
-	<jsp:include page="../../../frame/header.jsp" />
+	<jsp:include page="/frame/header.jsp" />
 	<html:form action="/employee" method="POST" styleClass="employeeForm">	
 	<div class="container container-taps">
 		<div class="grid">
@@ -110,7 +110,7 @@ function button(task) {
 	</div>
 	<html:hidden property="task" name="employeeForm" />
 	</html:form>
-	<jsp:include page="../../../frame/footer.jsp" />
+	<jsp:include page="/frame/footer.jsp" />
 
 </body>
 

@@ -9,13 +9,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<jsp:include page="../../../js/import.jsp" />
+<jsp:include page="/js/import.jsp" />
 
 <title>Organization</title>
 </head>
 
 <body class="metro">
-	<jsp:include page="../../../frame/header.jsp" />
+	<jsp:include page="/frame/header.jsp" />
 
 	<div class="container container-taps">
 		<div class="grid">
@@ -136,5 +136,5 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="../../../frame/footer.jsp" />
+	<jsp:include page="/frame/footer.jsp" />
 </html>
