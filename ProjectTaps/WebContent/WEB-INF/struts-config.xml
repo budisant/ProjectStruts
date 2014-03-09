@@ -15,12 +15,13 @@
 			type="adins.ace.taps.action.EmployeeAction">
 				<forward name="Dashboard" path="/WEB-INF/jsp/dashboard.jsp" />
 				<forward name="Edit" path="/WEB-INF/jsp/employee/edit.jsp" />
+				<forward name="New" path="/WEB-INF/jsp/employee/new.jsp" />
 				<forward name="ListEmployee" path="/WEB-INF/jsp/employee/index.jsp" />
 		</action>
 		<action name="menuForm" path="/menu" scope="request"
 			type="adins.ace.taps.action.MenuAction">
 				<forward name="Dashboard" path="/WEB-INF/jsp/dashboard.jsp" />
-				<forward name="Employee" path="/employee.do?task=ListEmployee" />
+				<forward name="Employee" path="/employee.do" />
 				<forward name="Organization" path="/WEB-INF/jsp/organization/index.jsp" />
 				<forward name="Project" path="/WEB-INF/jsp/project/index.jsp" />
 				<forward name="Report" path="/WEB-INF/jsp/report/index.jsp" />

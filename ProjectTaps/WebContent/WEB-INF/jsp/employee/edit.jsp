@@ -1,9 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html" %>
+<%@taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic" %>
+<%@taglib uri="/WEB-INF/tld/struts-nested.tld" prefix="bean" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript">
+function button(task) {
+	document.employeeForm.task.value = task;
+	document.employeeForm.submit();
+}
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,14 +21,14 @@
 </head>
 <body class="metro">
 	<jsp:include page="../../../frame/header.jsp" />
-
+	<html:form action="/employee" method="POST" styleClass="employeeForm">	
 	<div class="container container-taps">
 		<div class="grid">
 			<div class="row row-taps shadow-taps">
 				<table class="table">
 					<thead>
 						<tr>
-							<th colspan=4 class="text-center">Add Employee</th>
+							<th colspan=4 class="text-center">Edit Employee</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -156,7 +164,7 @@
 						<tr>
 							<td colspan="4" class="text-right">
 								<button id="save-btn-emp" onclick="" class="button success">Save</button>
-								<button id="cancel-btn" onclick="">Cancel</button>
+								<button id="cancel-btn" onclick="button('new');">Cancel</button>
 							</td>
 						</tr>
 					</tbody>
@@ -165,7 +173,8 @@
 			</div>
 		</div>
 	</div>
-
+	<html:hidden property="task" name="employeeForm" />
+	</html:form>
 	<jsp:include page="../../../frame/footer.jsp" />
 	<div id="popup_organization" class="hide"><jsp:include
 			page="../../../lookup/_organization.jsp" /></div>

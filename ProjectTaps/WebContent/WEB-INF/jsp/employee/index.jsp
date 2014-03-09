@@ -98,7 +98,7 @@ function button(task) {
 									</ul>
 								</div>
 							</td>
-							<td class="text-center"><a href="new.jsp"
+							<td class="text-center"><a href="javascript:button('new');"
 								data-hint="Add Employee" data-hint-position="bottom"><img
 									alt="" src="<%=request.getContextPath()%>/images/ADD_EMPLOYEE.png"></a></td>
 						</tr>

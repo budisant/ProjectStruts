@@ -11,7 +11,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import adins.ace.taps.form.employee.EmployeeForm;
-import adins.ace.taps.form.menu.MenuForm;
 import adins.ace.taps.manager.EmployeeManager;
 
 public class EmployeeAction extends Action {
@@ -20,16 +19,19 @@ public class EmployeeAction extends Action {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		EmployeeForm mForm = (EmployeeForm) form;
-		//HttpSession session = request.getSession(true);
-		if ("ListEmployee".equals(mForm.getTask())){
-			EmployeeManager mMan = new EmployeeManager();
-			mForm.setListEmployees(mMan.getAllEmployees());
-			return mapping.findForward("ListEmployee");
-		}
+		EmployeeManager mMan = new EmployeeManager();
+		mForm.setListEmployees(mMan.getAllEmployees());			
+		
 		if ("edit".equals(mForm.getTask())) {
 			return mapping.findForward("Edit");
 		}
+		if("new".equals(mForm.getTask())){
+			return mapping.findForward("New");
+		}
+		if("cancel".equals(mForm.getTask())){
+			return mapping.findForward("ListEmployee");
+		}
 		
-		return mapping.findForward("Dashboard");
+		return mapping.findForward("ListEmployee");
 	}
 }
