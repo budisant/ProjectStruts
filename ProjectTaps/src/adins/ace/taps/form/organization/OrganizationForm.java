@@ -1,5 +1,7 @@
 package adins.ace.taps.form.organization;
 
+import java.util.List;
+
 import org.apache.struts.action.ActionForm;
 
 @SuppressWarnings("serial")
@@ -8,6 +10,7 @@ public class OrganizationForm extends ActionForm {
 	private String search;
 	private String value;
 	private String sessionUserDomain;
+	private List listOrganizations;
 
 	public String getTask() {
 		return task;
@@ -39,6 +42,14 @@ public class OrganizationForm extends ActionForm {
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	public List getListOrganizations() {
+		return listOrganizations;
+	}
+
+	public void setListOrganizations(List listOrganizations) {
+		this.listOrganizations = listOrganizations;
 	}
 
 }
