@@ -76,13 +76,13 @@
 									property="listEmployees">
 									<tr>
 										<td><bean:write name="employee" property="employeeCode" /></td>
-										<td><bean:write name="employee" property="userDomain" /></td>
-										<td><bean:write name="employee" property="nik" /></td>
+										<td><bean:write name="employee" property="employeeDomain" /></td>
+										<td><bean:write name="employee" property="employeeNik" /></td>
 										<td><bean:write name="employee" property="employeeName" /></td>
 										<td><bean:write name="employee"
 												property="employeeAddress" /></td>
 										<td class="text-center"><a
-											href="javascript:button('edit','<bean:write name="employee" property="userDomain"/>');"
+											href="javascript:button('edit','<bean:write name="employee" property="employeeDomain"/>');"
 											data-hint="Edit Employee" data-hint-position="bottom"><img
 												alt="" src="<%=request.getContextPath()%>/images/EDIT.png"></a></td>
 										<td class="text-center"><a href="javascript:confDel()"
