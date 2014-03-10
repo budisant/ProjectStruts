@@ -10,8 +10,6 @@ import adins.ace.taps.ibatis.IbatisHelper;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
-
-
 public class OrganizationManager {
 	public SqlMapClient ibatisSqlMap = null;
 
@@ -19,32 +17,50 @@ public class OrganizationManager {
 		this.ibatisSqlMap = IbatisHelper.getSqlMapInstance();
 	}
 
-	public List<OrganizationBean> searchOrganizations(Map params){
+	public List<OrganizationBean> searchOrganizations(Map params) {
 		List<OrganizationBean> orgList = null;
 		try {
 			ibatisSqlMap.startTransaction();
-			orgList = ibatisSqlMap.queryForList("organization.getAllOrganization", params);			
+			orgList = ibatisSqlMap.queryForList(
+					"organization.searchOrganizations", params);
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally{
+		} finally {
 			try {
 				ibatisSqlMap.endTransaction();
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
 		}
-		return orgList;		
+		return orgList;
 	}
-	
-	public void submitInsert(OrganizationBean eBean) throws SQLException, IOException {
 
+	public Integer countOrganizations(Map params) {
+		Integer count = null;
+		try {
+			ibatisSqlMap.startTransaction();
+			count = (Integer) ibatisSqlMap.queryForObject(
+					"organization.countOrganizations", params);
+			ibatisSqlMap.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatisSqlMap.endTransaction();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return count;
+	}
+
+	public void submitInsert(OrganizationBean eBean) throws SQLException,
+			IOException {
 		try {
 			ibatisSqlMap.startTransaction();
 			ibatisSqlMap.insert("organization.insertOrganization", eBean);
 			ibatisSqlMap.commitTransaction();
-
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {

@@ -4,13 +4,53 @@ import java.util.List;
 
 import org.apache.struts.action.ActionForm;
 
+import adins.ace.taps.bean.organization.OrganizationBean;
+
 @SuppressWarnings("serial")
 public class OrganizationForm extends ActionForm {
 	private String task;
 	private String search;
 	private String value;
 	private String sessionUserDomain;
-	private List listOrganizations;
+	private String keyword;
+	private Integer page;
+	private Integer maxpage;
+	private String category;
+	private Integer countRecord;
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	public Integer getPage() {
+		return page;
+	}
+
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+
+	public Integer getMaxpage() {
+		return maxpage;
+	}
+
+	public void setMaxpage(Integer maxpage) {
+		this.maxpage = maxpage;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	private List<OrganizationBean> listOrganizations;
 
 	public String getTask() {
 		return task;
@@ -44,12 +84,20 @@ public class OrganizationForm extends ActionForm {
 		this.value = value;
 	}
 
-	public List getListOrganizations() {
+	public List<OrganizationBean> getListOrganizations() {
 		return listOrganizations;
 	}
 
-	public void setListOrganizations(List listOrganizations) {
+	public void setListOrganizations(List<OrganizationBean> listOrganizations) {
 		this.listOrganizations = listOrganizations;
+	}
+
+	public Integer getCountRecord() {
+		return countRecord;
+	}
+
+	public void setCountRecord(Integer countRecord) {
+		this.countRecord = countRecord;
 	}
 
 }

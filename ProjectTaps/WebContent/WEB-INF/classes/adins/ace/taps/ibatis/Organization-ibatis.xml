@@ -19,15 +19,36 @@ PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
 		#sessionUserDomain#, SYSDATE)
 	</insert>
 
-	<select id="getAllOrganization" resultClass="organizationBean"
+	<select id="countOrganizations" resultClass="int"
+		parameterClass="java.util.Map">
+		SELECT COUNT(1)
+		FROM organizations o
+		LEFT
+		JOIN
+		employees e
+		ON o.head_user_domain =
+		e.user_domain
+		AND
+		LOWER(e.flag) =
+		'active'
+		START
+		WITH
+		o.organization_code = 'MAN'
+		CONNECT
+		BY
+		PRIOR
+		o.organization_code =
+		o.parent_organization_code
+	</select>
+
+	<select id="searchOrganizations" resultClass="organizationBean"
 		parameterClass="java.util.Map">
 		SELECT *
 		FROM (SELECT ROWNUM seqnum, a.*
 		FROM (
 		SELECT LPAD
 		(o.organization_code,LENGTH
-		(o.organization_code) + (LEVEL * 2) - 2,'
-		')
+		(o.organization_code) + (LEVEL * 2) - 2,'-')
 		AS organizationCode,
 		o.organization_name AS organizationName,
 		e.first_name || ' ' || e.last_name AS headName
