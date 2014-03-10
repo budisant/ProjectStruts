@@ -1,14 +1,26 @@
 package adins.ace.taps.form.specialAppraisal;
 
+import java.util.List;
+
 import org.apache.struts.action.ActionForm;
+
+import adins.ace.taps.bean.employee.EmployeeBean;
+import adins.ace.taps.bean.specialAppraisal.SpecialAppraisalBean;
 
 @SuppressWarnings("serial")
 public class SpecialAppraisalForm extends ActionForm{
 	private String task;
 	private String search;
 	private String value;
+	private List<SpecialAppraisalBean> listSpecialAppraisal;
 	
-	
+	public List<SpecialAppraisalBean> getListSpecialAppraisal() {
+		return listSpecialAppraisal;
+	}
+	public void setListSpecialAppraisal(
+			List<SpecialAppraisalBean> listSpecialAppraisal) {
+		this.listSpecialAppraisal = listSpecialAppraisal;
+	}
 	public String getTask() {
 		return task;
 	}
@@ -27,7 +39,4 @@ public class SpecialAppraisalForm extends ActionForm{
 	public void setValue(String value) {
 		this.value = value;
 	}
-	
-	
-	
 }
