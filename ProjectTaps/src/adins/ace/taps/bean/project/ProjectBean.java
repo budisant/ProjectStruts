@@ -11,6 +11,8 @@ public class ProjectBean implements Serializable
 	private String phase;
 	private String startDate;
 	private String endDate;
+	private int runningDay;
+	
 	public String getProjectCode() {
 		return projectCode;
 	}
@@ -52,6 +54,12 @@ public class ProjectBean implements Serializable
 	}
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+	public int getRunningDay() {
+		return runningDay;
+	}
+	public void setRunningDay(int runningDay) {
+		this.runningDay = runningDay;
 	}
 	
 	
