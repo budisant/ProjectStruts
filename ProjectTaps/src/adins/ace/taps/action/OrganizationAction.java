@@ -24,12 +24,22 @@ public class OrganizationAction extends Action {
 		System.out.println("Organization");
 		OrganizationManager orgMan = new OrganizationManager();
 		OrganizationForm orgForm = (OrganizationForm) form;
+		if (orgForm.getPage() == null) {
+			orgForm.setPage(1);
+		}
+
 		Map params = new HashMap();
-		
+
 		params.put("start", 1);
 		params.put("end", 10);
-		
+
 		orgForm.setListOrganizations(orgMan.searchOrganizations(params));
+		orgForm.setCountRecord(orgMan.countOrganizations(params));
+		if (orgForm.getCountRecord() % 10 == 0) {
+			orgForm.setMaxpage((int) Math.ceil(orgForm.getCountRecord() / 10));
+		} else {
+			orgForm.setMaxpage(((int) Math.ceil(orgForm.getCountRecord() / 10)) + 1);
+		}
 		return mapping.findForward("ListOrganization");
 	}
 }
