@@ -26,16 +26,17 @@ public class EmployeeReportAction extends Action{
 			}
 			
 			eForm.setListAssignment(eMan.searchAssignment(eForm.getPage(),eForm.getSearch(),eForm.getValue()));
-			return mapping.findForward("indexSupervisor");
+			return mapping.findForward("employeeReportSupervisor");
 		}
 		else if ("add".equals(eForm.getTask())){
 			return mapping.findForward("add");
 		}
 		
+		System.out.println("test masuk");
 		if (eForm.getPage() == null){
 			eForm.setPage(1);
 		}
 		eForm.setListAssignment(eMan.getListAssignment(eForm.getPage()));
-		return mapping.findForward("indexSupervisor");
+		return mapping.findForward("employeeReportSupervisor");
 	}
 }

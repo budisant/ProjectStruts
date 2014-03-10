@@ -58,6 +58,7 @@
 		#createBy#, SYSDATE)
 	</insert>
 
+<<<<<<< HEAD
 <!-- 	<insert id="addSelfAssignment" parameterClass="adins.ace.taps.bean.assignment.NewAssignmentBean"> -->
 <!-- 		INSERT INTO assignments  -->
 <!-- 		(task_code,assignment_date, assignment_due_date, assignment_type, assignment_category, organization_code, project_code, description,  -->
@@ -67,6 +68,17 @@
 <!-- 		#description#, #reffTaskCode#, #activityType#, #adhocUserDomain#, #assignTo#, #reportTo#, #flag#, #currentStatus#,  -->
 <!-- 		#createBy#, SYSDATE) -->
 <!-- 	</insert> -->
+=======
+	<insert id="addSelfAssignment" parameterClass="adins.ace.taps.bean.assignment.NewAssignmentBean">
+		INSERT INTO assignments 
+		(task_code,assignment_date, assignment_due_date, assignment_type, assignment_category, organization_code, project_code, description, 
+		reff_task_code, activity_type, adhoc_user_domain, assign_to, report_to, flag, current_status, created_by, created_date) 
+		VALUES
+		('1',#assignmentDate#, #assignmentDueDate#, #assignmentType#, 'SELF ASSIGNMENT', #organizationCode#, #projectCode#, 
+		#description#, #reffTaskCode#, #activityType#, #adhocUserDomain#, #assignTo#, #reportTo#, #flag#, #currentStatus#, 
+		#createBy#, SYSDATE)
+	</insert>
+>>>>>>> branch 'master' of https://github.com/budisant/ProjectStruts.git
 	
 <!-- update current_status bergantung pada pilihan save(draft) dan assign(claim) -->	
 <!-- 	<update id="editAssignment" parameterClass="adins.ace.bean.NewAssignmentBean"> -->
