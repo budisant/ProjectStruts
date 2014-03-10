@@ -3,6 +3,9 @@
 
 package adins.ace.taps.action;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.*;
 
 import org.apache.struts.action.Action;
@@ -18,11 +21,15 @@ public class OrganizationAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		System.out.println("Organization");	
+		System.out.println("Organization");
 		OrganizationManager orgMan = new OrganizationManager();
 		OrganizationForm orgForm = (OrganizationForm) form;
-		orgForm.setListOrganizations(orgMan.getAllOrganizations());
+		Map params = new HashMap();
 		
+		params.put("start", 1);
+		params.put("end", 10);
+		
+		orgForm.setListOrganizations(orgMan.searchOrganizations(params));
 		return mapping.findForward("ListOrganization");
 	}
 }

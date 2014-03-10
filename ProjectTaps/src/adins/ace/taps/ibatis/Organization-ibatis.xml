@@ -4,7 +4,10 @@ PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
 "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
 <sqlMap namespace="organization">
-	<insert id="insertOrganization" parameterClass="adins.ace.taps.bean.organization.OrganizationBean">
+	<typeAlias alias="organizationBean"
+		type="adins.ace.taps.bean.organization.OrganizationBean" />
+
+	<insert id="insertOrganization" parameterClass="organizationBean">
 		INSERT INTO
 		organizations (organization_code, organization_name, head_user_domain,
 		organization_level, parent_organization_code, flag, created_by,
@@ -16,25 +19,42 @@ PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
 		#sessionUserDomain#, SYSDATE)
 	</insert>
 
-	<select id="getAllOrganization" 
-		resultClass="adins.ace.taps.bean.organization.OrganizationBean">
-		SELECT LPAD (o.organization_code,LENGTH
-		(o.organization_code) + (LEVEL * 2) - 2,' ') AS organizationCode,
-		 o.organization_name AS organizationName,
+	<select id="getAllOrganization" resultClass="organizationBean"
+		parameterClass="java.util.Map">
+		SELECT *
+		FROM (SELECT ROWNUM seqnum, a.*
+		FROM (
+		SELECT LPAD
+		(o.organization_code,LENGTH
+		(o.organization_code) + (LEVEL * 2) - 2,'
+		')
+		AS organizationCode,
+		o.organization_name AS organizationName,
 		e.first_name || ' ' || e.last_name AS headName
 		FROM organizations o
-		LEFT JOIN
+		LEFT
+		JOIN
 		employees e
 		ON o.head_user_domain =
 		e.user_domain
-		AND LOWER(e.flag) = 'active'
+		AND
+		LOWER(e.flag) =
+		'active'
 		START WITH
 		o.organization_code = 'MAN'
-		CONNECT BY PRIOR o.organization_code =
+		CONNECT
+		BY
+		PRIOR
+		o.organization_code =
 		o.parent_organization_code
+		)
+		a
+		WHERE  <![CDATA[ ROWNUM <= #end#]]>
+		)
+		WHERE  <![CDATA[ seqnum >= #start#]]>
 	</select>
 
-	<update id="editOrganization" parameterClass="adins.ace.taps.bean.organization.OrganizationBean">
+	<update id="editOrganization" parameterClass="organizationBean">
 		UPDATE
 		organizations SET
 		organization_name = $organizationName$,
@@ -52,7 +72,8 @@ PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
 		UPDATE
 		organizations SET
 		flag = 'INACTIVE'
-		WHERE organization_code = $organization_code$
+		WHERE organization_code =
+		$organization_code$
 	</delete>
 
 </sqlMap>

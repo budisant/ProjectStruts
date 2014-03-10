@@ -3,6 +3,7 @@ package adins.ace.taps.manager;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import adins.ace.taps.bean.organization.OrganizationBean;
 import adins.ace.taps.ibatis.IbatisHelper;
@@ -18,11 +19,11 @@ public class OrganizationManager {
 		this.ibatisSqlMap = IbatisHelper.getSqlMapInstance();
 	}
 
-	public List getAllOrganizations(){
-		List orgList = null;
+	public List<OrganizationBean> searchOrganizations(Map params){
+		List<OrganizationBean> orgList = null;
 		try {
 			ibatisSqlMap.startTransaction();
-			orgList = ibatisSqlMap.queryForList("organization.getAllOrganization", null);			
+			orgList = ibatisSqlMap.queryForList("organization.getAllOrganization", params);			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally{
