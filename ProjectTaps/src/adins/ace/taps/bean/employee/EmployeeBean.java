@@ -5,8 +5,8 @@ import java.io.Serializable;
 public class EmployeeBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String employeeCode;
-	private String userDomain;
-	private String nik;
+	private String employeeDomain;
+	private String employeeNik;
 	private String employeeName;
 	private String employeeAddress;
 	public String getEmployeeCode() {
@@ -15,17 +15,17 @@ public class EmployeeBean implements Serializable {
 	public void setEmployeeCode(String employeeCode) {
 		this.employeeCode = employeeCode;
 	}
-	public String getUserDomain() {
-		return userDomain;
+	public String getEmployeeDomain() {
+		return employeeDomain;
 	}
-	public void setUserDomain(String userDomain) {
-		this.userDomain = userDomain;
+	public void setEmployeeDomain(String employeeDomain) {
+		this.employeeDomain = employeeDomain;
 	}
-	public String getNik() {
-		return nik;
+	public String getEmployeeNik() {
+		return employeeNik;
 	}
-	public void setNik(String nik) {
-		this.nik = nik;
+	public void setEmployeeNik(String employeeNik) {
+		this.employeeNik = employeeNik;
 	}
 	public String getEmployeeName() {
 		return employeeName;

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class ReportBean implements Serializable {
-	private Integer reportId;
+	private String reportId;
 	private String organizationCode;
 	private String firstName;
 	private String lastName;
@@ -33,11 +33,11 @@ public class ReportBean implements Serializable {
 	private String updateBy;
 	private String updateDate;
 
-	public Integer getReportId() {
+	public String getReportId() {
 		return reportId;
 	}
 
-	public void setReportId(Integer reportId) {
+	public void setReportId(String reportId) {
 		this.reportId = reportId;
 	}
 

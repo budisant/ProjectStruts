@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+<%@taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+<%@taglib uri="/WEB-INF/tld/struts-nested.tld" prefix="bean"%>
+
 <!doctype html>
 <html>
 <head>
@@ -10,6 +14,14 @@
 <jsp:include page="/js/import.jsp" />
 
 <title>Assignment</title>
+
+<script type="text/javascript">
+	function flyToPage(task) {
+		document.employeeReportForm.task.value = task;
+		document.employeeReportForm.submit();
+	}
+</script>
+
 </head>
 <body class="metro">
 	<jsp:include page="/frame/header.jsp" />
@@ -26,7 +38,7 @@
 							<th colspan=2 class="text-center">Assignment Deadline From</th>
 							<th colspan=5>
 								<div class="input-control text" id="datepicker-begin">
-									<input type="text" class="text-center">
+									<html:text property="startDate" name="employeeReportForm"></html:text>
 									<button class="btn-date"></button>
 								</div>
 							</th>
@@ -35,7 +47,7 @@
 							<th colspan=2 class="text-center">Assignment Deadline To</th>
 							<th colspan=5>
 								<div class="input-control text" id="datepicker-end">
-									<input type="text" class="text-center">
+									<html:text property="endDate" name="employeeReportForm"></html:text>
 									<button class="btn-date"></button>
 								</div>
 							</th>
@@ -43,18 +55,23 @@
 						<tr>
 							<th colspan=2 class="text-center">
 								<div class="input-control select">
-									<select>
-										<option value="">All</option>
-										<option value="taskCode">Assignment Code</option>
-										<option value="taskType">Assignment Type</option>
-										<option value="employee">Employee Name</option>
-									</select>
+									<html:select property="search" name="employeeReportForm">
+										<html:option value="">All</html:option>
+										<html:option value="taskCode">Assignment Code</html:option>
+										<html:option value="taskType">Assignment Type</html:option>
+										<html:option value="employee">Employee Name</html:option>
+									</html:select>
 								</div>
 							</th>
 							<th colspan=5 class="text-center">
 								<div class="input-control text">
-									<input type="text" placeholder="Keyword of Assignment" />
-									<button class="btn-search"></button>
+									<html:text property="value" name="employeeReportForm"></html:text>
+									<html:button property="btnSearch"
+										onclick="javascript:flyToPage('search');"></html:button>
+									<%-- 									<html:text property="value" name="employeeReportForm" --%>
+									<%-- 										placeholder="Keyword of Assignment"></html:text> --%>
+									<%-- 									<html:button property="btnSearch" class="btn-search" --%>
+									<%-- 										onclick="javascript:flyToPage('search');" ></html:button> --%>
 								</div>
 							</th>
 						</tr>
@@ -69,78 +86,30 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center">PRJ131100002</td>
-							<td class="text-center">Assignment</td>
-							<td>Hizkia Purba</td>
-							<td class="text-center">2013-11-20</td>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center"><a href="claim_temp.jsp">Claim</a></td>
-						</tr>
-						<tr>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center">PRJ131100002</td>
-							<td class="text-center">Assignment</td>
-							<td>Hizkia Purba</td>
-							<td class="text-center">2013-11-20</td>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center"><a href="view_temp.jsp">RFA</a></td>
-						</tr>
-						<tr>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center">PRJ131100002</td>
-							<td class="text-center">Assignment</td>
-							<td>Hizkia Purba</td>
-							<td class="text-center">2013-11-20</td>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center"><a href="correction.jsp">Correction</a></td>
-						</tr>
-						<tr>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center">PRJ131100002</td>
-							<td class="text-center">Assignment</td>
-							<td>Hizkia Purba</td>
-							<td class="text-center">2013-11-20</td>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center"><a href="approval_viewonly.jsp">Approved</a></td>
-						</tr>
-						<tr>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center">PRJ131100002</td>
-							<td class="text-center">Self Assignment</td>
-							<td>Hizkia Purba</td>
-							<td class="text-center">2013-11-20</td>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center"><a href="new_s.jsp">Draft</a></td>
-						</tr>
-						<tr>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center">PRJ131100002</td>
-							<td class="text-center">Self Assignment</td>
-							<td>Hizkia Purba</td>
-							<td class="text-center">2013-11-20</td>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center"><a href="view_stemp.jsp">RFA</a></td>
-						</tr>
-						<tr>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center">PRJ131100002</td>
-							<td class="text-center">Self Assignment</td>
-							<td>Hizkia Purba</td>
-							<td class="text-center">2013-11-20</td>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center"><a href="correction.jsp">Correction</a></td>
-						</tr>
-						<tr>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center">PRJ131100002</td>
-							<td class="text-center">Self Assignment</td>
-							<td>Hizkia Purba</td>
-							<td class="text-center">2013-11-20</td>
-							<td class="text-center">2013-11-14</td>
-							<td class="text-center"><a href="approval_sviewonly.jsp">Approved</a></td>
-						</tr>
+						<logic:notEmpty property="listAssignment"
+							name="employeeReportForm">
+							<logic:iterate id="assignment" name="employeeReportForm"
+								property="listAssignment">
+								<tr>
+									<td><bean:write property="assignmentDate"
+											name="assignment" /></td>
+									<td><bean:write property="assignmentCode"
+											name="assignment" /></td>
+									<td><bean:write property="assignmentCategory"
+											name="assignment" /></td>
+									<td><bean:write property="fullName" name="assignment" /></td>
+									<td><bean:write property="assignmentDueDate"
+											name="assignment" /></td>
+									<td><bean:write property="createdDate" name="assignment" /></td>
+									<td><bean:write property="currentStatus" name="assignment" /></td>
+								</tr>
+							</logic:iterate>
+						</logic:notEmpty>
+						<logic:empty property="listAssignment" name="employeeReportForm">
+							<tr>
+								<td colspan="7">Data Not Found</td>
+							</tr>
+						</logic:empty>
 						<tr>
 							<td colspan=5 class="text-center">
 								<div class="pagination">
@@ -160,7 +129,8 @@
 							</td>
 							<td colspan=2 class="text-right"><a href="new_s.jsp"
 								data-hint="New Self Assignment" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/ADD_ASSIGNMENTT.png"></a></td>
+									alt=""
+									src="<%=request.getContextPath()%>/images/ADD_ASSIGNMENTT.png"></a></td>
 						</tr>
 					</tbody>
 				</table>

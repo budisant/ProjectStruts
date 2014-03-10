@@ -1,13 +1,26 @@
 package adins.ace.taps.form.report;
 
+
+import java.util.List;
+
 import org.apache.struts.action.ActionForm;
 
+
 @SuppressWarnings("serial")
-public class ReportForm extends ActionForm {
+public class ReportForm extends ActionForm{
 	private String task;
 	private String search;
 	private String value;
 	private String periode;
+	private List listReports; 
+
+	public List getListReports() {
+		return listReports;
+	}
+
+	public void setListReports(List listReports) {
+		this.listReports = listReports;
+	}
 
 	public String getTask() {
 		return task;
@@ -40,5 +53,4 @@ public class ReportForm extends ActionForm {
 	public void setPeriode(String periode) {
 		this.periode = periode;
 	}
-
 }
