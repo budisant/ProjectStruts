@@ -10,26 +10,27 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 
 
 public class SpecialAppraisalManager {
+	public SqlMapClient ibatisSqlMap = null;
 
-	public SqlMapClient ibatsSqlMap = null;
-	
-	public SpecialAppraisalManager(){
-		this.ibatsSqlMap = IbatisHelper.getSqlMapInstance();
+	public SpecialAppraisalManager() {
+		this.ibatisSqlMap = IbatisHelper.getSqlMapInstance();
 	}
 
 	public List getAll(){
 		List list = null;
 		SpecialAppraisalBean bean = new SpecialAppraisalBean();
 		try {
-			ibatsSqlMap.startTransaction();
-			list = ibatsSqlMap.queryForList("SpecialAppraisal.getAllSpecialAppraisal",null);			
-			ibatsSqlMap.commitTransaction();
+			System.out.println("masuk list");
+			ibatisSqlMap.startTransaction();
+			list = ibatisSqlMap.queryForList("SpecialAppraisal.getAllSpecialAppraisal",null);			
+			ibatisSqlMap.commitTransaction();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			System.out.println("gagal list");
 			e.printStackTrace();
 		} finally{
 			try{
-				ibatsSqlMap.endTransaction();
+				ibatisSqlMap.endTransaction();
 			}
 			catch (Exception e2) {
 				// TODO: handle exception
@@ -43,15 +44,15 @@ public class SpecialAppraisalManager {
 		List list = null;
 		SpecialAppraisalBean bean = new SpecialAppraisalBean();
 		try {
-			ibatsSqlMap.startTransaction();
-			list = ibatsSqlMap.queryForList("SpecialAppraisal.getDetailSpecialAppraisal",starId);			
-			ibatsSqlMap.commitTransaction();
+			ibatisSqlMap.startTransaction();
+			list = ibatisSqlMap.queryForList("SpecialAppraisal.getDetailSpecialAppraisal",starId);			
+			ibatisSqlMap.commitTransaction();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
 			try{
-				ibatsSqlMap.endTransaction();
+				ibatisSqlMap.endTransaction();
 			}
 			catch (Exception e2) {
 				// TODO: handle exception
@@ -63,15 +64,15 @@ public class SpecialAppraisalManager {
 	
 	public void Insert(SpecialAppraisalBean Bean){
 		try {
-			ibatsSqlMap.startTransaction();
-			ibatsSqlMap.insert("SpecialAppraisal.insertSpecialAppraisal", Bean);
-			ibatsSqlMap.commitTransaction();
+			ibatisSqlMap.startTransaction();
+			ibatisSqlMap.insert("SpecialAppraisal.insertSpecialAppraisal", Bean);
+			ibatisSqlMap.commitTransaction();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			try{
-				ibatsSqlMap.endTransaction();
+				ibatisSqlMap.endTransaction();
 			}
 			catch (Exception e2) {
 				// TODO: handle exception

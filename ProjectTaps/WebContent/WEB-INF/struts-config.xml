@@ -9,6 +9,7 @@
 		<form-bean name="menuForm" type="adins.ace.taps.form.menu.MenuForm" />
 		<form-bean name="loginForm" type="adins.ace.taps.form.login.LoginForm" />
 		<form-bean name="OrganizationForm" type="adins.ace.taps.form.organization.OrganizationForm" />
+		<form-bean name="SpecialAppraisalForm" type="adins.ace.taps.form.specialAppraisal.SpecialAppraisalForm" />
 	</form-beans>
 
 	<action-mappings>	
@@ -16,6 +17,12 @@
 			type="adins.ace.taps.action.OrganizationAction">
 				<forward name="ListOrganization" path="/WEB-INF/jsp/organization/index.jsp" />
 		</action>
+		
+		<action name="SpecialAppraisalForm" path="/specialAppraisal" scope="request"
+			type="adins.ace.taps.action.SpecialAppraisalAction">
+				<forward name="ListSpecialAppraisal" path="/WEB-INF/jsp/appraisal/index.jsp" />
+		</action>
+		
 		<action name="employeeForm" path="/employee" scope="request"
 			type="adins.ace.taps.action.EmployeeAction">
 				<forward name="Dashboard" path="/WEB-INF/jsp/dashboard.jsp" />
