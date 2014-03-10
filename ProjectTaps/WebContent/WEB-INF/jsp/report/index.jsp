@@ -1,17 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+<%@ taglib uri="/WEB-INF/tld/struts-nested.tld" prefix="bean"%>
 <!doctype html>
 <html>
 <head>
+<script type="text/javascript">
+function report(task) {
+	alert(task);
+	document.reportForm.task.value = task;
+	document.reportForm.submit();
+}
+</script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<jsp:include page="/js/import.jsp" />
+<jsp:include page="../../../js/import.jsp" />
 <title>Taps</title>
 </head>
 <body class="metro">
-<jsp:include page="/frame/header.jsp" />
-
+<jsp:include page="../../../frame/header.jsp" />
+	<html:form action="/report" method="POST" styleClass="reportForm">
 	<div class="container container-taps">
 		<div class="grid">
 			<div class="row row-taps shadow-taps">
@@ -77,7 +86,7 @@
 							</tr>
 							<tr>
 								<td colspan="3" class="text-right">
-									<button id="generate-btn" onclick="" class="success">Generate</button>
+									<button onclick="report('view');" class="success">Generate</button>
 								</td>
 							</tr>
 						</tbody>
@@ -85,6 +94,8 @@
 				</div>
 			</div>
 		</div>
-	<jsp:include page="/frame/footer.jsp" />
+		<html:hidden property="task" name="reportForm" />
+		</html:form>
+	<jsp:include page="../../../frame/footer.jsp" />
 </body>
 </html>
