@@ -24,14 +24,36 @@ public class OrganizationAction extends Action {
 		System.out.println("Organization");
 		OrganizationManager orgMan = new OrganizationManager();
 		OrganizationForm orgForm = (OrganizationForm) form;
+		Map params = new HashMap();
+
 		if (orgForm.getPage() == null) {
 			orgForm.setPage(1);
 		}
 
-		Map params = new HashMap();
+		if ("first".equals(orgForm.getTask())) {
+			orgForm.setPage(1);
+		}
 
-		params.put("start", 1);
-		params.put("end", 10);
+		if ("last".equals(orgForm.getTask())) {
+			orgForm.setPage(orgForm.getMaxpage());
+		}
+
+		if ("prev".equals(orgForm.getTask())) {
+			if (orgForm.getPage() > 1) {
+				orgForm.setPage(orgForm.getPage() - 1);
+			}
+		}
+		if ("next".equals(orgForm.getTask())) {
+			if (orgForm.getPage() < orgForm.getMaxpage()) {
+				orgForm.setPage(orgForm.getPage() + 1);
+			}
+		}
+		if ("search".equals(orgForm.getTask())) {
+			orgForm.setPage(1);
+		}
+		
+		params.put("start", (orgForm.getPage() - 1) * 10 + 1);
+		params.put("end", (orgForm.getPage() * 10));
 
 		orgForm.setListOrganizations(orgMan.searchOrganizations(params));
 		orgForm.setCountRecord(orgMan.countOrganizations(params));
