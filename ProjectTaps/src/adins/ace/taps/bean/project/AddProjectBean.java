@@ -14,6 +14,8 @@ public class AddProjectBean implements Serializable
 	private String flag;
 	private String createdBy;
 	private String createdDate;
+	
+	
 	public String getProjectCode() {
 		return projectCode;
 	}
