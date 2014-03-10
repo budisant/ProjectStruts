@@ -13,6 +13,7 @@
 <link href="css/metro-bootstrap.css" rel="stylesheet">
 <link href="css/metro-bootstrap-responsive.css" rel="stylesheet">
 <link href="css/style-login.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 <script src="js/jquery/jquery.min.js"></script>
 
 <script type="text/javascript">

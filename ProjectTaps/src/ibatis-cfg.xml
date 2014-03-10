@@ -12,13 +12,14 @@ PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
 		<dataSource type="SIMPLE">
 			<property name="JDBC.Driver" value="oracle.jdbc.OracleDriver" />
 			<property name="JDBC.ConnectionURL" value="jdbc:oracle:thin:@localhost:1521:xe" />
-			<property name="JDBC.Username" value="hr" />
-			<property name="JDBC.Password" value="hr" />
+			<property name="JDBC.Username" value="TAPS" />
+			<property name="JDBC.Password" value="taps" />
 			<property name="JDBC.DefaultAutoCommit" value="true" />
 		</dataSource>
 
 	</transactionManager>
 
-	<sqlMap resource="adins/ace/ibatis/employee-ibatis-cfg.xml" />
+	<sqlMap resource="adins/ace/taps/ibatis/Employee-ibatis.xml" />
+	
 
 </sqlMapConfig>

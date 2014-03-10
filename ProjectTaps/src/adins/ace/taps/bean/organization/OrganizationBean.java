@@ -15,6 +15,7 @@ public class OrganizationBean implements Serializable {
 	private String createdDate;
 	private String updateBy;
 	private String updateDate;
+	private String sessionUserDomain;
 
 	public String getOrganizationCode() {
 		return organizationCode;
@@ -102,6 +103,14 @@ public class OrganizationBean implements Serializable {
 
 	public void setUpdateDate(String updateDate) {
 		this.updateDate = updateDate;
+	}
+
+	public String getSessionUserDomain() {
+		return sessionUserDomain;
+	}
+
+	public void setSessionUserDomain(String sessionUserDomain) {
+		this.sessionUserDomain = sessionUserDomain;
 	}
 
 }

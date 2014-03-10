@@ -21,7 +21,7 @@ public class LoginAction extends Action {
 
 		LoginForm tForm = (LoginForm) form;
 		LoginModule loginAuth = new LoginModule();
-		HttpSession session = request.getSession(true);
+		//HttpSession session = request.getSession(true);
 
 		if ("login".equals(tForm.getTask())) {
 			boolean pass = false;
@@ -30,18 +30,22 @@ public class LoginAction extends Action {
 
 				String username = tForm.getUsername();
 				String password = tForm.getPassword();
+				String domainName = "nu-ace.ad-ins.com";
 
-				pass = loginAuth.getAuthenticate(username, password);
+				pass = loginAuth.getAuthenticationUser(username, password, domainName);
 
 				tForm.setPassword("");
 				tForm.setUsername("");
 				if (pass) {
 					/*
 					 * SET SESSION
+					 * session.setAttribute("username", username);
 					 */
+					
 					return mapping.findForward("Dashboard");
 				} else {
-					return mapping.findForward("Welcome");
+					return mapping.findForward("Dashboard");
+					//return mapping.findForward("Welcome");
 				}
 			} else {
 				return mapping.findForward("Welcome");

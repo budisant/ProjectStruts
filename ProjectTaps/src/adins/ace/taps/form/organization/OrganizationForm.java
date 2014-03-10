@@ -7,9 +7,18 @@ public class OrganizationForm extends ActionForm {
 	private String task;
 	private String search;
 	private String value;
+	private String sessionUserDomain;
 
 	public String getTask() {
 		return task;
+	}
+
+	public String getSessionUserDomain() {
+		return sessionUserDomain;
+	}
+
+	public void setSessionUserDomain(String sessionUserDomain) {
+		this.sessionUserDomain = sessionUserDomain;
 	}
 
 	public void setTask(String task) {
