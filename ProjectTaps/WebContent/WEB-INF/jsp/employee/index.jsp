@@ -7,22 +7,23 @@
 
 <html>
 <head>
+
 <script type="text/javascript">
 	function button(task) {
 		document.employeeForm.task.value = task;
 		document.employeeForm.submit();
 	}
+	
+	$(document).ready(function() {
+		$("#searchKeyword").attr("placeholder", "Keyword of Employee");
+	});
 </script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <jsp:include page="/js/import.jsp" />
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#searchKeyword").attr("placeholder", "Keyword of Employee");
-	});
-</script>
 
 <title>Employee</title>
 

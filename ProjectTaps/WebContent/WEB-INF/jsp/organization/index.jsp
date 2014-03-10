@@ -1,10 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html" %>
+<%@taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic" %>
+<%@taglib uri="/WEB-INF/tld/struts-nested.tld" prefix="bean" %>	
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
+<script type="text/javascript">
+ 	
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,62 +59,25 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>MAN</td>
-							<td class="text-center">Manajemen</td>
-							<td>Guntur Gozali</td>
-							<td class="text-center"><a href="structure.jsp"
-								data-hint="Member Organization" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/MEMBER.png"></a></td>
-							<td class="text-center"><a href="new.jsp"
-								data-hint="Edit Organization" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/EDIT.png"></a></td>
-							<td class="text-center"><a href="javascript:confDel()"
-								data-hint="Delete Organization" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/DELETE.png"></a></td>
-						</tr>
-						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSD</td>
-							<td class="text-center">Custom Solution Division</td>
-							<td>Ricky Suryo Utomo</td>
-							<td class="text-center"><a href="structure.jsp"
-								data-hint="Member Organization" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/MEMBER.png"></a></td>
-							<td class="text-center"><a href="new.jsp"
-								data-hint="Edit Organization" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/EDIT.png"></a></td>
-							<td class="text-center"><a href="javascript:confDel()"
-								data-hint="Delete Organization" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/DELETE.png"></a></td>
-						</tr>
-						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CDD</td>
-							<td class="text-center">Custom Development Department</td>
-							<td>Toto Hugo</td>
-							<td class="text-center"><a href="structure.jsp"
-								data-hint="Member Organization" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/MEMBER.png"></a></td>
-							<td class="text-center"><a href="new.jsp"
-								data-hint="Edit Organization" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/EDIT.png"></a></td>
-							<td class="text-center"><a href="javascript:confDel()"
-								data-hint="Delete Organization" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/DELETE.png"></a></td>
-						</tr>
-						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MAD</td>
-							<td class="text-center">Mobile Application Department</td>
-							<td>Rolensa Mandeno</td>
-							<td class="text-center"><a href="structure.jsp"
-								data-hint="Member Organization" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/MEMBER.png"></a></td>
-							<td class="text-center"><a href="new.jsp"
-								data-hint="Edit Organization" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/EDIT.png"></a></td>
-							<td class="text-center"><a href="javascript:confDel()"
-								data-hint="Delete Organization" data-hint-position="bottom"><img
-									alt="" src="<%=request.getContextPath()%>/images/DELETE.png"></a></td>
-						</tr>
+						<logic:notEmpty name="organizationForm" property="listOrganizations">
+						hasadd
+							<logic:iterate id="organization" name="organizationForm" property="listOrganizations">
+								<tr>
+									<td><bean:write name="organization" property="organizationCode"/></td>
+									<td><bean:write name="organization" property="organizationName"/></td>
+									<td><bean:write name="organization" property="headName"/></td>
+									<td class="text-center"><a href="structure.jsp"
+										data-hint="Member Organization" data-hint-position="bottom"><img
+											alt="" src="<%=request.getContextPath()%>/images/MEMBER.png"></a></td>
+									<td class="text-center"><a href="new.jsp"
+										data-hint="Edit Organization" data-hint-position="bottom"><img
+											alt="" src="<%=request.getContextPath()%>/images/EDIT.png"></a></td>
+									<td class="text-center"><a href="javascript:confDel()"
+										data-hint="Delete Organization" data-hint-position="bottom"><img
+											alt="" src="<%=request.getContextPath()%>/images/DELETE.png"></a></td>
+								</tr>
+							</logic:iterate>
+						</logic:notEmpty>
 						<tr>
 							<td colspan=5 class="text-center">
 								<div class="pagination">
@@ -132,7 +101,6 @@
 						</tr>
 					</tbody>
 				</table>
-
 			</div>
 		</div>
 	</div>
