@@ -4,22 +4,30 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class NewAssignmentBean implements Serializable{
-	private String assignmentDate;
-	private String assignmentDueDate;
-	private String assignmentType;
-	private String assignmentCategory;
-	private String organizationCode;
-	private String projectCode;
-	private String description;
-	private String reffTaskCode;
-	private String adhocUserDomain;
-	private String assignTo;
-	private String reportTo;
-	private String flag;
-	private String currentStatus;
-	private String createBy;
-	private String createDate;
+	private String taskCode = "";
+	private String assignmentDate = "";
+	private String assignmentDueDate = "";
+	private String assignmentType = "";
+	private String assignmentCategory = "";
+	private String organizationCode = "";
+	private String projectCode = "";
+	private String activityType = "";
+	private String description = "";
+	private String reffTaskCode = "";
+	private String adhocUserDomain = "";
+	private String assignTo = "";
+	private String reportTo = "";
+	private String flag = "";
+	private String currentStatus = "";
+	private String createBy = "";
+	private String createDate = "";
 	
+	public String getTaskCode() {
+		return taskCode;
+	}
+	public void setTaskCode(String taskCode) {
+		this.taskCode = taskCode;
+	}
 	public String getAssignmentDate() {
 		return assignmentDate;
 	}
@@ -55,6 +63,12 @@ public class NewAssignmentBean implements Serializable{
 	}
 	public void setProjectCode(String projectCode) {
 		this.projectCode = projectCode;
+	}
+	public String getActivityType() {
+		return activityType;
+	}
+	public void setActivityType(String activityType) {
+		this.activityType = activityType;
 	}
 	public String getDescription() {
 		return description;
@@ -110,5 +124,4 @@ public class NewAssignmentBean implements Serializable{
 	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
-	
 }
